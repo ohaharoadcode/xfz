@@ -1,0 +1,104 @@
+{% extends 'base/base_news.html' %}
+{% load news_filter %}
+{% block title %}小饭桌_新闻首页{% endblock %}
+{% block news_link %}
+    <script src="{% static '' %}js/lib/template-web.js"></script>
+    <link rel="stylesheet" href="{% static 'js/swiper-4.5.0/dist/css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.min.css' %}">
+
+    <script src="{% static 'js/swiper-4.5.0/dist/js/swiper.min.js' %}"></script>
+    <script src="{% static '' %}js/index.min.js"></script>
+{% endblock %}
+
+{% block article_left %}
+    <section class="article_left">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for banner in banners %}
+                   <div class="swiper-slide"><a href="{{ banner.link_url }}"><img src="{{ banner.banner_img }}" alt=""></a>
+                </div>
+                {% endfor %}
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+
+        </div>
+        <div class="list-news">
+            <ul class="list-tag">
+                {% for category in categories %}
+                    {% if category.name == '热点' %}
+                        <li><a class="active" href="javascript:;" id="{{ category.id }}">{{ category.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% for category in categories %}
+                    {% if category.name != '其他' and category.name != '热点' %}
+                        <li><a href="javascript:;" id="{{ category.id }}">{{ category.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% for category in categories %}
+                    {% if category.name == '其他' %}
+                        <li><a href="javascript:;" id="{{ category.id }}">{{ category.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+
+            </ul>
+            <ul class="news-content">
+                {% for news in newses %}
+                    <li class="clearfix">
+                        <a href="/news/{{ news.id }}">
+                            <div class="news-img"><img src="{{ news.thumbnail }}" alt=""></div>
+                            <div class="content">
+                                <div class="title">{{ news.title }}</div>
+                                <div class="detail">{{ news.desc }}</div>
+                                <div class="other">
+                            <span class="keywords">
+                                <label>燕窝</label>
+                                <label>小仙炖</label>
+                            </span>
+                                    <span class="author">{{ news.author.username }}</span>
+                                    <span class="time">{{ news.pub_time | time_since }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="news-more">
+            <a href="javascript:;" id="load-more">
+                查看更多
+            </a>
+        </div>
+    </section>
+    <script id="load-news" type="text/html">
+        {% verbatim %}
+        {{ each newses news i }}
+        <li class="clearfix">
+            <a href="/news/{{ news.id }}">
+                <div class="news-img"><img src="{{ news.thumbnail }}" alt=""></div>
+                <div class="content">
+                    <div class="title">{{ news.title }}</div>
+                    <div class="detail">{{ news.desc }}</div>
+                    <div class="other">
+                            <span class="keywords">
+                                <label>燕窝</label>
+                                <label>小仙炖</label>
+                            </span>
+                        <span class="author">{{ news.author.username }}</span>
+                        <span class="time">{{ news.pub_time | timesince  }}</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{ /each }}
+        {% endverbatim %}
+    </script>
+{% endblock %}

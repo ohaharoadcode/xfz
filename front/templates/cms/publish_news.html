@@ -1,0 +1,103 @@
+{% extends 'base/base_cms.html' %}
+{% block link %}
+    <!-- WangEditor富文本编辑器 -->
+    <script type="text/javascript" src="{% static '' %}js/editor/release/wangEditor.js"></script>
+
+    <!-- WangEditor 全屏插件-->
+    <script src="{% static '' %}js/wangEditor-fullscreen-plugin.js"></script>
+    <link rel="stylesheet" href="{% static '' %}css/wangEditor-fullscreen-plugin.css">
+
+    <!--本页面js -->
+    <script src="{% static '' %}js/publish_news.js"></script>
+
+{% endblock %}
+{% block content %}
+    <div class="col-md-10 col-md-offset-1">
+        <div class="box box-primary clearfix">
+            <div class="box-header with-border">
+                <h3 class="box-title">新闻发布/编辑</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form  " class="form-horizontal col-md-11">
+                {% csrf_token %}
+                <div class="box-body ">
+                    <!--title -->
+                    <div class="form-group">
+                        <label for="news-title" class="col-sm-2 control-label">新闻标题</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="news-title" placeholder="请输入新闻标题"
+                                   value="{{ news.title }}">
+                        </div>
+                    </div>
+                    <!--desc -->
+                    <div class="form-group">
+                        <label for="news-desc" class="col-sm-2 control-label">新闻描述</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="news-desc" placeholder="请输入新闻描述"
+                                   value="{{ news.desc }}">
+                        </div>
+                    </div>
+                    <!-- category -->
+                    <div class="form-group">
+                        <label for="news-category" class="col-sm-2 control-label">新闻分类</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="news-category">
+                                {% for category in  categories %}
+                                    {% if category.pk == news.category.id %}
+
+                                    <option id="{{ category.pk }}"
+                                            value="{{ category.pk }}" selected="selected">{{ category.name }}</option>
+                                    {% else %}
+                                        <option id="{{ category.pk }}"
+                                            value="{{ category.pk }}">{{ category.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!-- thumbnail -->
+                    <div class="form-group ">
+                        <label class="control-label col-sm-2" for="inputGroupSuccess2">新闻缩略图</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="thumbnail-url"
+                                       aria-describedby="inputGroupSuccess2Status" value="{{ news.thumbnail }}">
+                                <span class="input-group-btn ">
+                                    <label for="thumbnail-file" class="btn btn-primary">点击上传<input type="file"
+                                                                                                   id="thumbnail-file"
+                                                                                                   class="sr-only"
+                                                                                                   ></label>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- 加载编辑器的容器 -->
+                    <div class="form-group">
+                        <!-- 如果是修改新闻，保存新闻内容和新闻id -->
+                        <input type="text" id="edit_news_content" class="sr-only" value="{{ news.content }}">
+                        <input type="text" id="edit_news_id" class="sr-only" value="{{ news.pk }}">
+
+                        <div class="col-sm-10 col-sm-offset-2" id="editor">
+                            <p style="color: #999999">请输入新闻内容</p>
+                        </div>
+                    </div>
+                    <!-- 配置文件 -->
+                    <!-- 编辑器源码文件 -->
+                    <!-- /.box-body -->
+                    <!--- sumbit -->
+                    <div class="box-footer">
+                        <button type="submit" id="submit" class="btn btn-primary pull-right">发布</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    //侧边栏当前页面的条目文字设为白色
+    $(function(){
+    sidebar_display.set(1,0);
+    })
+{% endblock %}

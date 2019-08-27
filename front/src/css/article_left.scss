@@ -1,0 +1,8 @@
+@import "contants";
+article{
+  .article_left {
+    width: $article_left_w;
+    background-color: white;
+    float: left;
+  }
+}

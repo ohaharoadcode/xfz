@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% block link %}
+    {% block course_link %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/course_nav.min.css' %}">
+    <script>
+        $(function () {
+            $('.nav .header-li .header-course').addClass('active')
+        })
+    </script>
+{% endblock %}
+{% block course_nav %}
+    <div class="course-nav">
+        <div class="nav-content">
+            <div class="title"><a href="javascript:;">在线课堂</a></div>
+            <ul>
+                <li>
+                    <a href="javascript:;">最新课堂</a>
+                </li>
+                <li>
+                    <a href="javascript:;">系列课</a>
+                </li>
+                <li>
+                    <a href="javascript:;">投资人说</a>
+                </li>
+                <li>
+                    <a href="javascript:;">明星案例</a>
+                </li>
+                <li>
+                    <a href="javascript:;">创业知识</a>
+                </li>
+                <li>
+                    <a href="javascript:;">会员专区</a>
+                </li>
+                <li>
+                    <a href="javascript:;">我的课堂</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
+

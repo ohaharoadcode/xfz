@@ -1,0 +1,19 @@
+@import "init";
+.row{
+  .outer{
+    background-color: #fff;
+    padding-top: 20px;
+    border: rgba(1,1,1,0.2) solid 1px;
+    .thumbnail{
+      padding: 0;
+      border: none;
+      #img_thumbnail{
+        width: 100%;
+        object-fit: cover;
+      }
+      .btn-wrapper{
+        margin-top: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swiper</title>
+    <script src="../dis/js/jquery-3.4.1.min.js"></script>
+    <script src="../dis/js/swiper-4.5.0/dist/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="../dis/js/swiper-4.5.0/dist/css/swiper.min.css">
+    <style>
+        .wrapper {
+            width: 1080px;
+            height: 350px;
+            margin: 0 auto;
+            background-color: skyblue;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../dis/img/carousel1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../dis/img/carousel2.png" alt=""></div>
+                <div class="swiper-slide"><img src="../dis/img/3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../dis/img/4.png" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: true,
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+
+    })
+</script>
+</body>
+</html>

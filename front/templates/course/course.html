@@ -1,0 +1,395 @@
+{% extends 'base/base_course.html' %}
+{% block title %}
+    课堂首页
+{% endblock %}
+{% block course_link %}
+
+    <link rel="stylesheet" href="{% static 'css/course.min.css' %}">
+{% endblock %}
+{% block article %}
+    <section class="article_left">
+        <div class="course-top clearfix">
+            <div class="large-course">
+                <a href="{% url 'course:course_detail' id='1' %}">
+                    <div class="course-logo">
+                        <img src="{% static '' %}img/news/1554346383_8.png" alt="">
+                    </div>
+                    <div class="course-info">
+                        <div class="course-series">共9节课</div>
+                        <div class="course-price"><span>199元</span>（省139元）</div>
+                    </div>
+                </a>
+
+            </div>
+            <div class="little-course"><a href="javascript:;">
+                <div class="course-logo">
+                    <img src="{% static '' %}img/news/1554346512_613.jpg" alt="">
+                </div>
+                <div class="course-info">
+                    <div class="course-series">
+                        共2节课<span> 时长2小时</span>
+                    </div>
+                    <div class="course-price">
+                        <span>99元</span>（省19元）
+                    </div>
+                </div>
+            </a></div>
+            <div class="little-course"><a href="javascript:;">
+                <div class="course-logo">
+                    <img src="{% static '' %}img/news/1554346512_613.jpg" alt="">
+                </div>
+                <div class="course-info">
+                    <div class="course-series">
+                        共2节课<span> 时长2小时</span>
+                    </div>
+                    <div class="course-price">
+                        <span>99元</span>（省19元）
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="course-main">
+            <div class="course-po">最新课堂</div>
+            <ul class="clearfix">
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-large.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title"></div>
+                            <div class="main-course-author"></div>
+                            <div class="main-course-price">99</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+                <li class="main-course-li">
+                    <a class="main-course-a" href="javascript">
+                        <div class="main-course-img"><img src="{% static '' %}img/news/main-course-little.png" alt="">
+                        </div>
+                        <div class="main-course-info">
+                            <div class="main-course-title">面对危机公关，多快多算</div>
+                            <div class="main-course-author">高超 / 资深品牌公关</div>
+                            <div class="main-course-price">免费</div>
+                        </div>
+                        <div class="main-course-categ">明星案例</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+
+

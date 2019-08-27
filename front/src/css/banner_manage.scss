@@ -1,0 +1,34 @@
+.banner-container {
+  .banner-wrapper {
+    h4 {
+      span {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .box {
+      padding-bottom: 15px;
+      .banner-img-wrapper {
+        width: 531px;
+        height: 177px;
+        overflow: hidden;
+        label {
+          &:hover {
+            cursor: pointer;
+          }
+          img {
+            width: 100%;
+          }
+
+        }
+
+      }
+      .submit {
+        margin-top: 150px;
+        padding-right: 40px;
+      }
+
+    }
+  }
+}

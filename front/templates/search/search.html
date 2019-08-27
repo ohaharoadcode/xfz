@@ -1,0 +1,51 @@
+{% extends 'base/base_news.html' %}
+{% load news_filter %}
+{% block news_link %}
+    <link rel="stylesheet" href="{% static 'css/search.min.css' %}">
+{% endblock %}
+{% block title %}
+    搜索
+{% endblock %}
+{% block article_left %}
+    <section class="article_left">
+        <form action="" method="get">
+            <input type="text" placeholder="请输入搜索内容词组" name="q" value="{{ query }}">
+            <input type="submit" value="点击搜索">
+        </form>
+        {% if query %}
+            <div class="list-news">
+                <ul class="news-content">
+                    {% for news in page.object_list %}
+                        <li class="clearfix">
+                            <a href="/news/{{ news.object.id }}">
+                                <div class="news-img"><img src="{{ news.object.thumbnail }}" alt=""></div>
+                                <div class="content">
+                                    <div class="title">{{ news.object.title }}</div>
+                                    <div class="detail">{{ news.object.desc }}</div>
+                                    <div class="other">
+                            <span class="keywords">
+                                <label>燕窝</label>
+                                <label>小仙炖</label>
+                            </span>
+                                        <span class="author">{{ news.object.author.username }}</span>
+                                        <span class="time">{{ news.object.pub_time | time_since }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    {% empty %}
+                        <p>未找到您需要的结果！</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </section>
+
+    <script>
+        $(function () {
+            $('.nav .header-li .header-search').addClass('active');
+            $('.nav .header-li .header-news').removeClass();
+        })
+    </script>
+{% endblock %}

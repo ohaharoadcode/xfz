@@ -1,0 +1,121 @@
+.auth {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(1, 1, 1, 0.7);
+  z-index: 999;
+
+  .outer-wrapper {
+    width: 1001px;
+    height: 670px;
+    margin: 80px auto;
+    background-color: white;
+    overflow: hidden;
+
+    .login {
+      width: 500px;
+      box-sizing: border-box;
+      padding: 20px 10px 20px 50px;
+      float: left;
+      .remember {
+        height: 20px;
+        position: relative;
+        padding-left: 32px;
+        #login_remember {
+          display: block;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 30px;
+          left: 0;
+        }
+      }
+    }
+    .register {
+      width: 501px;
+      float: right;
+      box-sizing: border-box;
+      border-left: 1px gray dashed;
+      height: 700px;
+      padding: 20px 10px 20px 50px;
+    }
+    .title {
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+      color: #5c8ae9;
+      .close {
+        float: right;
+        color: red;
+        margin: 0 10px;
+        padding: 0 10px;
+        &:hover {
+          cursor: pointer;
+          background-color: skyblue;
+        }
+      }
+    ;
+    }
+    form {
+      padding-left: 20px;
+      label {
+        font-size: 17px;
+        font-weight: bold;
+      }
+      div {
+        padding-top: 30px;
+        position: relative;
+      }
+      input {
+        height: 40px;
+        width: 300px;
+        font-size: 20px;
+      }
+      .verify-div {
+        img {
+          height: 40px;
+          display: block;
+          float: left;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .verify-input {
+          width: 200px;
+          font-size: 15px;
+          display: block;
+          float: right;
+          margin-right: 43px;
+          padding-left: 10px;
+        }
+      }
+      .error {
+        color: red;
+        font-size: 15px;
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 76px;
+      }
+      .submit-row {
+        text-align: right;
+        padding-right: 40px;
+        input {
+          width: 80px;
+          height: 40px;
+          border: none;
+          background-color: rgba(85, 107, 255, 0.84);
+          color: white;
+          font-size: 18px;
+          border-radius: 5px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

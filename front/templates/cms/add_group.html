@@ -1,0 +1,55 @@
+{% extends 'base/base_cms.html' %}
+
+{% block link %}
+    <script src="{% static 'js/add_group.min.js' %}"></script>
+
+{% endblock %}
+{% block content-title %}
+{% endblock %}
+
+{% block content %}
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h2 class="box-title">设置用户分组</h2>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+        {% csrf_token %}
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="telephone" class="col-sm-2 control-label">用户手机号</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="telephone" placeholder="手机号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">添加分组</label>
+
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            {% for group in groups %}
+                                <label style="padding-right: 15px">
+                                    <input type="checkbox" value="{{ group.id }}">{{ group.name }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button class="btn btn-primary pull-right">确定</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    $(function(){
+    sidebar_display.set(2,1);
+    });
+
+{% endblock %}

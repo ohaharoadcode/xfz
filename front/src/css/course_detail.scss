@@ -1,0 +1,13 @@
+@import "contants";
+@import "init";
+@import "header";
+@import "article_left";
+@import "course_nav";
+@import "footer";
+@import 'auth';
+article{
+  .article_left{
+    background-color: $page_bgc;
+
+  }
+}

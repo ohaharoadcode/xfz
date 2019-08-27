@@ -1,0 +1,188 @@
+{% extends 'base/base_cms.html' %}
+{% block link %}
+    <link rel="stylesheet" href="{% static '' %}adminlte/plugins/iCheck/flat/blue.css">
+    <script src="{% static '' %}adminlte/plugins/iCheck/icheck.min.js"></script>
+    <link rel="stylesheet" href="{% static '' %}css/categ_news.min.css">
+    <script src="{% static '' %}js/categ_news.min.js"></script>
+    <script>
+        $(function () {
+            //Enable iCheck plugin for checkboxes
+            //iCheck for checkbox and radio inputs
+            $('.table input[type="checkbox"]').iCheck({
+                checkboxClass: 'icheckbox_flat-blue',
+                radioClass: 'iradio_flat-blue'
+            });
+
+            //Enable check and uncheck all functionality
+            $(".checkbox-toggle").click(function () {
+                var clicks = $(this).data('clicks');
+                if (clicks) {
+                    //Uncheck all checkboxes
+                    $(".table input[type='checkbox']").iCheck("uncheck");
+                    $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+                } else {
+                    //Check all checkboxes
+                    $(".table input[type='checkbox']").iCheck("check");
+                    $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+                }
+                $(this).data("clicks", !clicks);
+            });
+
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 clearfix">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <button type="button" class="btn btn-primary btn-lg pull-left" data-toggle="modal"
+                                data-target="#add_modal">添加分类
+                        </button>
+                        <div class="box-tools">
+                            {#                            搜索框#}
+                            <div class="input-group input-group-md" style="width: 250px; margin-top: 9px">
+                                <input type="text" name="table_search" class="search form-control pull-right"
+                                       value="{{ search }}" placeholder="请输入关键字">
+                                <div class="input-group-btn ">
+                                    <a class="search-btn" href="">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-header 展示分类的表格 -->
+                    <div class="box-body col-sm-12">
+                        {% if code == 200 %}
+                            <table class="table table-bordered table-hover text-center">
+                                <tr>
+                                    <th class="col-sm-1">
+                                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i
+                                                class="fa fa-square-o"></i>
+                                        </button>
+                                    </th>
+                                    <th class="col-sm-6">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</th>
+                                    <th class="col-sm-5">操&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作</th>
+                                </tr>
+                                {% for category in categorys %}
+                                    <tr>
+                                        <td><input class="select" type="checkbox" value="{{ category.id }}"></td>
+                                        <td class="name">{{ category.name }}</td>
+                                        <td class="edit_{{ category.pk }}">
+                                            <button type="button" class="btn btn-warning btn-sm edit{{ category.pk }}" data-toggle="modal"
+                                    data-target="#edit_modal">
+                                                编辑
+                                            </button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            {{ message }}
+                        {% endif %}
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /删除按钮和页码 -->
+                    <div class="box-footer clearfix">
+                        <div class="btn-group " style="padding-left: 20px">
+                            <button type="button" class="btn btn-default btn-sm delete-category " data-toggle="modal"
+                                    data-target="#delete-modal"><i class="fa fa-trash-o"></i></button>
+                        </div>
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#  删除确认模态框#}
+    <div class="modal  fade modal-danger" id="delete-modal" role="dialog" aria-labelledby="delete-title">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="delete-title">警告</h4>
+                </div>
+                <div class="modal-body">
+                    <p>删除后数据将无法复原!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-outline delete-certain">确定删除</button>
+                </div>
+            </div>
+            {% csrf_token %}
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- 增加分类模态框 -->
+    <div class="modal fade" id="add_modal" tabindex="-1" role="dialog" aria-labelledby="add_modal_title">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="margin-top: 30%">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">添加分类：</h3><span>批量添加请以空格分割</span>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <input class="form-control input-lg" type="text" placeholder="请输入分类名">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="add_modal_btn">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 编辑分类模态框 -->
+    <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="edit_modal_title">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="margin-top: 30%">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="edit_modal_title">编辑分类：</h3>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <input class="form-control input-lg" type="text" placeholder="请编辑分类名">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="edit_modal_btn">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content-title %}
+    新闻分类
+{% endblock %}
+{% block script %}
+    $(function(){
+    sidebar_display.set(1,1);
+    });
+
+{% endblock %}

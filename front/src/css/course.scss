@@ -1,0 +1,185 @@
+@import "base";
+@import "init";
+@import "header";
+@import "article_left";
+@import "course_nav";
+@import "footer";
+
+article {
+  margin-top: 20px;
+  .article_left {
+    width: $page_width;
+    .course-top {
+      width: 100%;
+      box-sizing: border-box;
+      .large-course {
+        height: 540px;
+        float: left;
+        position: relative;
+        .course-logo {
+          height: 100%;
+          img {
+            height: 100%;
+          }
+        }
+        .course-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.3);
+          height: 80px;
+          width: 100%;
+          .course-series {
+            float: left;
+            height: 80px;
+            line-height: 80px;
+            padding-left: 30px;
+          }
+          .course-price {
+            float: right;
+            height: 80px;
+            line-height: 80px;
+            padding-right: 30px;
+            span {
+              color: #f76363;
+              font-size: 22px;
+            }
+          }
+        }
+      }
+      .little-course {
+        height: 260px;
+        float: right;
+        position: relative;
+        &:nth-child(2) {
+          margin-bottom: 20px;
+        }
+        .course-logo {
+          height: 100%;
+          img {
+            height: 100%;
+          }
+        }
+        .course-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 40px;
+          background-color: rgba(1,1,1,0.3);
+          color: white;
+          .course-series {
+            padding-left: 20px;
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            span{
+              font-size: 15px;
+            }
+          }
+          .course-price {
+            float: right;
+            height: 40px;
+            line-height: 40px;
+            padding-right: 20px;
+            span {
+              color: #f76363;
+              font-size: 22px;
+            }
+          }
+        }
+      }
+
+    }
+    .course-main{
+      width: $page_width;
+      background-color: #f8f8f8;
+      .course-po{
+        height: 40px;
+        color: white;
+        padding-left: 40px;
+        font-size: 20px;
+        line-height: 40px;
+        margin:20px 0;
+        background-image: url('../../dis/img/news/boundary-pc.png') ;
+        background-repeat: no-repeat;
+
+      }
+      ul{
+        position: relative;
+        .main-course-li{
+          float: left;
+          margin-right:10px;
+          margin-bottom: 30px;
+          width: 357px;
+          position: relative;
+          &:hover{
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            top: -3px;
+          }
+          .main-course-img{
+            width: 100%;
+            img{
+              width: 100%;
+            }
+          }
+          .main-course-info{
+            padding:40px;
+            .main-course-title{
+              color:#212121;
+              font-size: 17px;
+            }
+            .main-course-author{
+              padding-top: 30px;
+              font-size: 15px;
+              color: #888;
+            }
+            .main-course-price{
+              color: #7ed321;
+              font-size: 17px;
+              float: right;
+              padding-top: 35px;
+              padding-bottom: 35px;
+            }
+          }
+          .main-course-categ{
+            width: 70px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #5b86db;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            color: white;
+          }
+
+        }
+        .main-course-li:nth-child(9n){
+          width: 722px;
+
+          .main-course-info{
+            background-color: rgba(1,1,1,0.3);
+            position: absolute;
+            bottom: 4px;
+            right: 0;
+            padding: 0;
+            width: 100%;
+            .main-course-title,.main-course-author{
+              display: none;
+            }
+            .main-course-price{
+              padding-bottom: 10px;
+              padding-right: 20px;
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+

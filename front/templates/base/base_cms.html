@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>小饭桌管理系统</title>
+    <link rel="shortcut icon" href="{% static '' %}img/favicon.ico">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{% static '' %}adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static '' %}adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static '' %}adminlte/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{% static '' %}adminlte/dist/css/skins/skin-blue.min.css">
+    <script src="{% static '' %}adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{% static '' %}adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{% static '' %}adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="{% static '' %}adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="{% static '' %}adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="{% static '' %}adminlte/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static '' %}adminlte/dist/js/adminlte.min.js"></script>
+    <script src="{% static '' %}js/side_display.min.js"></script>
+    <script src="{% static  '' %}js/xfz_ajax.min.js"></script>
+    <script src="{% static  '' %}js/message.min.js"></script>
+    <script src="{% static  '' %}js/sweetalert.min.js"></script>
+    {% block link %}
+    {% endblock %}
+    <style>
+        .sidebar-menu .treeview {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="javascript:;" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>CMS</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>小饭桌</b>管理系统</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="meessages-menu"><a href="{% url 'news:news_index' %}">返回首页</a></li>
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li><!-- start message -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="{% static '' %}adminlte/dist/img/user2-160x160.jpg"
+                                                     class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <!-- end message -->
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="{% static '' %}adminlte/dist/img/user3-128x128.jpg"
+                                                     class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                AdminLTE Design Team
+                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="{% static '' %}adminlte/dist/img/user4-128x128.jpg"
+                                                     class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Developers
+                                                <small><i class="fa fa-clock-o"></i> Today</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="{% static '' %}adminlte/dist/img/user3-128x128.jpg"
+                                                     class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Sales Department
+                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="{% static '' %}adminlte/dist/img/user4-128x128.jpg"
+                                                     class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                Reviewers
+                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">See All Messages</a></li>
+                        </ul>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/media/{{ user.thumbnail }}" class="user-image"
+                                 alt="User Image">
+                            <span class="hidden-xs">{{ user.username }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="/media/{{ user.thumbnail }}" class="img-circle"
+                                     alt="User Image">
+
+                                <p>
+                                    {{ user.username }}
+                                    <small>这家伙很懒，什么都没留下。。。</small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">个人信息</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="{% url 'xfz_auth:logout' %}" class="btn btn-default btn-flat">注销登录</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- search form -- 搜索>
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="搜索">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="treeview active">
+                    <a href="#">
+                        <i class="fa fa-user"></i> <span>个人管理</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{% url 'cms:personal_info' %}"><i class="fa fa-sticky-note-o"></i>
+                            我的信息</a></li>
+                        <li><a href="JavaScript:;"><i class="fa  fa-envelope"></i> 我的消息</a></li>
+                        <li><a href="JavaScript:;"><i class="fa fa-graduation-cap"></i> 我的课程</a></li>
+                        <li><a href="JavaScript:;"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+                        <li><a href="JavaScript:;"><i class="fa fa-tags"></i> 优惠券</a></li>
+                    </ul>
+                </li>
+                {% if perms.news.change_news %}
+                    <li class=" treeview">
+                        <a href="#">
+                            <i class="fa fa-cog"></i> <span>新闻管理</span>
+                            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{% url 'cms:publish_news' %}"><i class="fa fa-edit"></i> 新闻发布</a></li>
+                            <li><a href="{% url 'cms:categ_news' %}"><i class="fa   fa-list-ul"></i> 新闻分类</a></li>
+                            <li><a href="{% url 'cms:news_manage' %}"><i class="fa fa-graduation-cap"></i> 新闻管理</a></li>
+                            <li><a href="{% url 'cms:banner_manage' %}"><i class="fa fa-shopping-cart"></i> 轮播图管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
+                {% if user.is_superuser %}
+                    <li class=" treeview">
+                        <a href="#">
+                            <i class="fa fa-cog"></i> <span>员工管理</span>
+                            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{% url 'cms:staff_list' %}"><i class="fa fa-user"></i> 员工列表</a></li>
+                            <li><a href="{% url 'cms:add_group' %}"><i class="fa fa-cog"></i> 设置员工分组</a></li>
+                            <li><a href="{% url 'cms:categ_news' %}"><i class="fa   fa-balance-scale"></i> 添加个人权限</a></li>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <section class="content-header">
+            {% block content-title %}
+
+            {% endblock %}
+        </section>
+        <section class="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        {#    <div class="pull-right hidden-xs">#}
+        {#      <b>小饭桌</b> 管理系统#}
+        {#    </div>#}
+        <strong>小饭桌</strong>管理系统
+    </footer>
+
+    <!-- Control Sidebar -->
+
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+
+</div>
+<!-- ./wrapper -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script>
+    {% block script %}
+
+    {% endblock %}
+</script>
+</body>
+</html>

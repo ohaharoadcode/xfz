@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="{% static '' %}js/jquery-3.4.1.min.js"></script>
+    <script src="//at.alicdn.com/t/font_653983_m0b0p7q4or.js"></script>
+    <script src="{% static '' %}js/message.min.js"></script>
+    <script src="{% static '' %}js/header.min.js"></script>
+    <script src="{% static '' %}js/xfz_ajax.min.js"></script>
+    <script src="{% static '' %}js/auth.min.js"></script>
+{#    <link rel="stylesheet" href="{% static '' %}adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">#}
+
+
+    <link rel="stylesheet" href="{% static '' %}css/header.min.css">
+    <link rel="stylesheet" href="{% static '' %}css/footer.min.css">
+    <link rel="shortcut icon" href="{% static '' %}img/favicon.ico">
+    <link rel="stylesheet" href="{% static '' %}css/auth.min.css">
+    {% block link %}
+    {% endblock %}
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo" style="background: url({% static '' %}img/logo.png) center no-repeat;"
+        ><a href="{% url 'news:news_index' %}"></a></div>
+        <div class="nav">
+            <ul>
+                <li class="header-li"><a href="{% url 'news:news_index' %}" class=" header-news">资讯</a></li>
+                <li class="header-li "><a href="javascript:;" class="header-course" >创业课堂
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-sanjiao_xia"></use>
+                    </svg>
+                </a>
+                    <div class="course-menu menu">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-triangle-top"></use>
+                        </svg>
+
+                        <ul>
+                            <li><a href="{% url 'course:index' %}">在线课堂</a></li>
+                            <li><a href="{% url 'course:index' %}">线下课堂</a></li>
+                            <li><a href="{% url 'course:index' %}">A轮班</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header-li"><a href="javascript:;" class=" header-service">企业服务
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-sanjiao_xia"></use>
+                    </svg>
+                </a>
+                    <div class="service-menu menu">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-triangle-top"></use>
+                        </svg>
+
+                        <ul>
+                            <li><a href="javascript:;">创业礼包</a></li>
+                            <li><a href="javascript:;">付费资讯</a></li>
+                            <li><a href="javascript:;">创投活动</a></li>
+                        </ul>
+                    </div>
+
+                </li>
+                <li class="header-li"><a href="/search/" class="header-search">搜索</a></li>
+            </ul>
+            <div class="right">
+                <div class="baodao"><a href="javascript:;">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-ktv-copy"></use>
+                    </svg>
+                    寻求报道</a>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="logined login-style">
+                        <span><a href="/cms/personal_info">{{ user.username }}</a></span> /
+                        <span><a href="{% url 'xfz_auth:logout' %} " id="logout">注销</a></span>
+                    </div>
+                {% else %}
+                    <div class="login login-style">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-touxiang"></use>
+                        </svg>
+                        <a href="javascript:;">登录</a> /
+                        <a href="javascript:;">注册</a>
+                    </div>
+                {% endif %}
+
+
+            </div>
+
+
+        </div>
+    </div>
+</header>
+{% block course_nav %}
+{% endblock %}
+<article class="clearfix">
+    {% block article %}
+    {% endblock %}
+</article>
+<footer>
+    <div class="wrapper">
+        <div class="partner">
+            <div>合作伙伴</div>
+            <ul>
+                <li><a href="javascript:;"><img src="{% static '' %}img/news/1454046552_487.png" alt=""></a></li>
+                <li><a href="javascript:;"><img src="{% static '' %}img/news/1454046135_474.png" alt=""></a></li>
+                <li><a href="javascript:;"><img src="{% static '' %}img/news/1454046053_122.png" alt=""></a></li>
+                <li><a href="javascript:;"><img src="{% static '' %}img/news/1454047318_361.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<div class="copy-right">
+    <div class="content">
+
+    </div>
+</div>
+<div class="auth">
+    <div class="outer-wrapper">
+        <div class="login">
+            <div class="title">登录</div>
+            <form>
+                {% csrf_token %}
+                <div class="telephone">
+                    <label for="login_telephone">手&nbsp;&nbsp;&nbsp;机：</label>
+                    <input type="text" name="telephone" id="login_telephone">
+                    <span class="error"></span>
+                </div>
+                <div class="pwd">
+                    <label for="login-password">密&nbsp;&nbsp;&nbsp;码：</label>
+                    <input type="password" name="pwd" id="login_password">
+                    <span class="error"></span>
+                </div>
+                <div class="verify-div clearfix">
+                    <img src="{% url 'xfz_auth:verifycode' %}" alt="">
+                    <input id='login_img_verify' class="img_verify verify-input" type="text" placeholder="请输入验证码">
+                    <span class="error"></span>
+                </div>
+                <div class="remember">
+                    <input type="checkbox" name="remember" id="login_remember" checked value="1">记住我
+                </div>
+                <div class="submit-row">
+                    <input type="submit" value="登录" id="login-submit">
+                </div>
+
+            </form>
+        </div>
+        <div class="register">
+            <div class="title"><span>注册</span>
+                <div class="close">关闭</div>
+            </div>
+            <form>
+                <div class="user">
+                    <label for="register-username">用户名：</label>
+                    <input type="text" id="register_username">
+                    <span class="error"></span>
+                </div>
+                <div class="telephone">
+                    <label for="register-telephone">手&nbsp;&nbsp;&nbsp;机：</label>
+                    <input type="text" name="phone" id="register_telephone">
+                    <span class="error"></span>
+                </div>
+                <div class="pwd">
+                    <label for="register-password1">密&nbsp;&nbsp;&nbsp;码：</label>
+                    <input type="password" name="pwd" id="register_password1">
+                    <span class="error"></span>
+                </div>
+                <div class="pwd">
+                    <label for="register-password2">密&nbsp;&nbsp;&nbsp;码：</label>
+                    <input type="password" name="pwd" id="register_password2">
+                    <span class="error"></span>
+                </div>
+                <div class="email">
+                    <label for="register-email">邮&nbsp;&nbsp;&nbsp;箱：</label>
+                    <input type="text" name="email" id="register_email">
+                    <span class="error"></span>
+                </div>
+
+                <div class="verify-div clearfix">
+                    <img src="{% url 'xfz_auth:verifycode' %}" alt="">
+                    <input id='register_img_verify' class="img_verify verify-input" type="text" placeholder="请输入验证码">
+                    <span class="error"></span>
+
+                </div>
+
+                <div class="submit-row">
+                    <input type="submit" value="注册" id="register-submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'base/base_cms.html' %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/banner_manage.min.css' %}">
+    <script src="{% static 'js/lib/template-web.js' %}"></script>
+    <script src="{% static 'js/banner_manage.min.js' %}"></script>
+{% endblock %}
+{% block content-title %}
+    <h2>轮播图管理页</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="container banner-container">
+        {% csrf_token %}
+        <div class="col-sm-12">
+            <div class="col-sm-1">
+                <button class="btn btn-success add_banner">添加轮播图 <i class="fa fa-plus"></i></button>
+            </div>
+            <div class="col-sm-4">
+                <ul>
+                    <li>图片比例为3:1，最小像素为996*332</li>
+                    <li>最大不超过5M</li>
+                </ul>
+            </div>
+        </div>
+        <div class="banner-wrapper">
+            {% for banner in banners %}
+            <div class="col-sm-6  box box-primary per-banner" name="{{ banner.pk }}">
+                <h4 class="position"><span class="priority">优先级为{{ banner.priority }}</span> <span class="pull-right delete_banner"><i class="fa fa-close"></i> </span>
+                </h4>
+                <div class="col-sm-6 banner-img-wrapper">
+                    <label for="banner-img"><img src="{{ banner.banner_img }}" alt="">
+                        <input class="sr-only" type="file" name="banner_img" id="banner-img" >
+                    </label>
+                </div>
+                <div class="col-sm-6 banner-input">
+                    <div class="form-group">
+                        <input class="form-control banner_priority" type="text" name="" placeholder="请输入优先级" value="{{ banner.priority }}">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control banner_url" type="text" name="" placeholder="请输入跳转链接" value="{{ banner.link_url }}">
+                    </div>
+                </div>
+                <div class="submit">
+                    <button class="btn btn-primary pull-right submit-btn">提交</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+    <script id="banner-card" type="text/html">
+        <div class="col-sm-6  box box-primary per-banner" name="">
+            <h4 class="position"><span class="priority">优先级为1</span><span class="pull-right delete_banner"><i class="fa fa-close"></i> </span></h4>
+            <div class="col-sm-6 banner-img-wrapper">
+                <label for="banner-img"><img src="{% static 'img/upload.jpg' %}" alt="">
+                    <input class="sr-only" type="file" name="banner_img" id="banner-img">
+                </label>
+            </div>
+            <div class="col-sm-6 banner-input">
+                <div class="form-group">
+                    <input class="form-control banner_priority" type="text" name="" placeholder="请输入优先级">
+                </div>
+                <div class="form-group">
+                    <input class="form-control banner_url" type="text" name="" placeholder="请输入跳转链接">
+                </div>
+            </div>
+            <div class="submit">
+                <button class="btn btn-primary pull-right submit-btn">提交</button>
+            </div>
+        </div>
+
+    </script>
+
+
+{% endblock %}
+{% block script %}
+    //左侧边栏当前版块高亮。本版块为第二大块，第四小块，因此输入参数为1,3
+    $(function(){
+    sidebar_display.set(1,3);
+    });
+
+{% endblock %}

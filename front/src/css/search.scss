@@ -1,0 +1,101 @@
+@import 'base';
+
+.article_left {
+  width: $article_left_w;
+  float: left;
+  form{
+    input[name="q"]{
+      width: 80%;
+      height: 40px;
+      padding-left: 10px;
+      font-size: 20px;
+    }
+    input[type="submit"]{
+      height: 40px;
+      width: 12%;
+      background-color: lightseagreen;
+      font-size: 18px;
+      border: none;
+      border-radius:7px ;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  .list-news {
+    width: $article_left_w;
+    margin-top: 30px;
+    .news-content {
+      width: $article_left_w;
+      li {
+        width: $article_left_w;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-bottom: rgba(128, 128, 128, 0.27) solid 1px;
+        height: 222px;
+        padding: 20px;
+        position: relative;
+        .news-img {
+          width: 228px;
+          height: 100%;
+          overflow: hidden;
+          float: left;
+          img {
+            width: 228px;
+          }
+        }
+        .content {
+          float: right;
+          width: $article_left_w - 288;
+          margin-left: 20px;
+          height: 100%;
+          .title {
+            width: 100%;
+            font-size: 25px;
+            color: black;
+            &:hover {
+              color: red;
+            }
+          }
+          .detail {
+            color: #878787;
+            font-size: 17px;
+            margin-top: 10px;
+          }
+          .other {
+            position: absolute;
+            bottom: 40px;
+            width: $article_left_w - 288;
+            span {
+              display: block;
+            }
+            .keywords {
+              float: left;
+              label {
+                display: inline-block;
+                padding-right: 5px;
+                color: #666666;
+              }
+            }
+            .time {
+              float: right;
+              color: #878787;
+            }
+            .author {
+              float: right;
+              color: #878787;
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}
+.article_right{
+  width: $article_right_w;
+  float: right;
+}

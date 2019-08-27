@@ -1,0 +1,120 @@
+{% extends 'base/base_news.html' %}
+{% load news_filter %}
+
+{% block title %}新闻详情{% endblock %}
+
+{% block news_link %}
+    <link rel="stylesheet" href="{% static '' %}css/news_detail.min.css">
+    <script src="{% static '' %}js/pub_comment.js"></script>
+{% endblock %}
+
+{% block article_left %}
+    <section class="article_left">
+        <div class="article-detail" uu="{{ news.pk }}">
+            <div class="title">
+                {{ news.title }}
+            </div>
+            <div class="author-share clearfix">
+                <div class="author">
+                    <span class="name" uu="{{ news.author.pk }}">{{ news.author.username }}</span>
+                    <span class="time">{{ news.pub_time| date:'Y-m-d' }}</span>
+                    <span class="categ">{{ news.category.name }}</span>
+                </div>
+                <div class="share">
+                    分享至
+                    <span class="weixin">
+                        <svg class="icon weixin" aria-hidden="true">
+                                    <use xlink:href="#icon-weixin1"></use>
+                                </svg>
+                    </span>
+                    <span class="weibo">
+                        <svg class="icon weibo" aria-hidden="true">
+                                    <use xlink:href="#icon-weibo"></use>
+                                </svg>
+                    </span>
+                </div>
+            </div>
+            <p class="lead-content">
+                {{ news.desc }}
+            </p>
+            <p class="courage">
+                桌友们早上好，一文读懂昨夜今晨科技圈大小事，元气满满的一天从这份新闻早餐开始！
+            </p>
+            <p class="hot-thing">
+                <span>
+                    {{ news.category.name }}
+                </span>
+            </p>
+            <div class="news-content">
+                {{ news.content | safe }}
+            </div>
+        </div>
+        <div class="comment">
+            <div class="comment-write">
+                <h3 class="comment-title">发表评论</h3>
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                    <div class="tips"></div>
+                    <textarea name="comment" class="comment-content login" id="comment-content"
+                              placeholder="请输入评论"></textarea>
+                    <div class="btn ">
+                        <button>点击提交</button>
+                    </div>
+                {% else %}
+                    <textarea name='comment' class="comment-content nologin" readonly placeholder="立即登录，输入评论"
+                              style="cursor: default"></textarea>
+                    <div class="btn">
+                        <button style="cursor: not-allowed">点击提交</button>
+                    </div>
+                {% endif %}
+            </div>
+            <ul class="comment-list">
+                {% for comment in comments %}
+                    {% if comment.is_master %}
+                        <li>
+                            <div class="others">
+                                <div class="author-pic"><a href="javascript:;"><img
+                                        src="/media/{{ comment.commenter.thumbnail }}"
+                                        alt=""></a></div>
+                                <div class="author-name" uu='{{ comment.commenter.pk }}'
+                                     master="{{ comment.id }}"><a
+                                        href="javascript:;">{{ comment.commenter.username }}</a></div>
+                                <div class="reply"><a href="javascript:;">回复</a></div>
+                                <div class="pub-time">{{ comment.pub_time | time_since }}</div>
+                            </div>
+                            <div class="detail">
+                                {{ comment.content }}
+                            </div>
+                            <ul>
+                                {% for comment_reply in comments %}
+                                    {% if comment_reply.master.pk == comment.pk %}
+                                        <li class="comment-reply">
+                                            <div class="others">
+                                                <div class="author-pic"><a href="javascript:;"><img
+                                                        src="/media/{{ comment_reply.commenter.thumbnail }}"
+                                                        alt=""></a></div>
+                                                <div class="author-name" uu='{{ comment_reply.commenter.pk }}'
+                                                     master="{{ comment_reply.master.pk }}"><a
+                                                        href="javascript:;" class="author-author">{{ comment_reply.commenter.username }}</a>
+                                                    回复 <span style="color: #803f1e">{{ comment_reply.comment_to.username }}</span>
+                                                </div>
+                                                <div class="reply"><a href="javascript:;">回复</a></div>
+                                                <div class="pub-time">{{ comment_reply.pub_time | time_since }}</div>
+                                            </div>
+                                            <div class="detail">
+                                                {{ comment_reply.content }}
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+
+
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+    </section>
+{% endblock %}

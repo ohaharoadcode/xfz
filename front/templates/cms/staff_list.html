@@ -1,0 +1,82 @@
+{% extends 'base/base_cms.html' %}
+{% block link %}
+    <link rel="stylesheet" href="{% static '' %}adminlte/plugins/iCheck/flat/blue.css">
+    <script src="{% static '' %}adminlte/plugins/iCheck/icheck.min.js"></script>
+    <script src="{% static 'js/layDate-v5.0.9/laydate/laydate.js' %}"></script>
+    <link rel="stylesheet" href="{% static '' %}css/staff_list.min.css">
+
+{% endblock %}
+{% block content-title %}
+    <h2>员工列表</h2>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12 clearfix">
+            <div class="col-lg-12">
+                <div class="box box-primary clearfix ">
+                    <div class="box-header with-border ">
+                        <form action="" class="form-inline" method="get">
+                                {#                            搜索框#}
+                            <div class="pull-right">
+                                <div class="input-group " style="padding-left: 30px">
+                                    <input type="text" name="search" class="search form-control"
+                                           value="{{ search }}" placeholder="请输入用户名或手机号">
+                                </div>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                <a href="javascript:;" class="btn btn-success" id="clear-btn">清除搜索内容</a>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- /.box-header 展示分类的表格 -->
+                    <div class="box-body col-sm-12">
+                        <table class="table table-bordered table-hover text-center ">
+                            <tr>
+                                <th class="col-sm-2">用户名</th>
+                                <th class="col-sm-1">手机号</th>
+                                <th class="col-sm-1">所属分组</th>
+                                <th class="col-sm-2">创建时间</th>
+                                <th class="col-sm-2">个人权限</th>
+                                <th class="col-sm-1">操&nbsp;&nbsp;&nbsp;作</th>
+                            </tr>
+                            {% for a_user in users %}
+                                <tr>
+                                    <td class="username"><a
+                                            href="javascript:;">{{ a_user.username }}</a></td>
+                                    <td class="telephone" >{{ a_user.telephone }}</td>
+                                    <td class="group">
+                                        {% for group in a_user.groups.all %}
+                                            <p>{{ group.name }}</p>
+                                        {% endfor %}
+                                    </td>
+                                    <td class="create_time">{{ a_user.register_time | date:"Y-m-d G:i:s" }}</td>
+                                    <td class="edit-time">{{ news.edit_time | date:"Y-m-d G:i:s" }}</td>
+                                    <td class="edit_{{ news.pk }}">
+                                        <a href="{% url 'cms:edit_news' news.pk %}" class="btn btn-warning btn-sm ">
+                                            编辑
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    $(function(){
+    sidebar_display.set(2,0);
+    $('#clear-btn').click(function(){
+        console.log(111)
+        $('input.search').val('');
+    })
+    });
+
+{% endblock %}
+
+

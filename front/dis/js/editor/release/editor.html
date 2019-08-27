@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<script src="wangEditor.min.js"></script>
+<script>
+    window.onload = function () {
+        var E = window.wangEditor
+        var editor = new E('#div1')
+        editor.customConfig.uploadImgShowBase64 = true
+        editor.create()
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+@import "contants";
+
+article{
+    .article_right {
+    width: $article_right_w;
+    float: right;
+    .qm {
+      background-color: white;
+      width: 100%;
+      padding: 20px 15px 10px;
+      .qm-header {
+        padding-bottom: 5px;
+        .title {
+          float: left;
+          font-size: 20px;
+          color: orangered;
+          display: block;
+        }
+        .more {
+          display: block;
+          float: right;
+          color: #666666;
+          line-height: 30px;
+          &:hover {
+            color: orangered;
+          }
+        }
+      }
+      .qm-list {
+        border-top: 3px solid #f77669;
+        li {
+          padding: 10px 0;
+          border-bottom: 1px dashed #ededed;
+          box-sizing: border-box;
+          &:hover {
+            cursor: pointer;
+            background: rgba(252, 232, 229, 0.24);
+          }
+          &:hover .share {
+            display: block;
+          }
+          .list-title {
+            padding-bottom: 10px;
+            font-size: 17px;
+            color: #555;
+          }
+          .list-content {
+            padding-top: 8px;
+            font-size: 14px;
+            color: #888888;
+            display: none;
+          }
+          //.content-open{
+          //  display: block;
+          //}
+          .list-other {
+            padding-top: 10px;
+            font-size: 14px;
+            color: #888888;
+            .time {
+              float: left;
+            }
+            .share {
+              float: right;
+              display: none;
+              .weibo {
+                font-size: 20px;
+              }
+              .weixin {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+      .look-more {
+        width: 100%;
+        height: 50px;
+        a {
+          display: block;
+          width: 30%;
+          height: 35px;
+          margin: 0 auto;
+          border-radius: 4px;
+          border: 1px solid #e63929;
+          color: #e63929;
+          line-height: 35px;
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+    }
+    .side-course {
+      background-color: white;
+      margin-top: 40px;
+      width: 100%;
+      padding: 20px 15px 10px;
+      .course-header {
+        padding-bottom: 5px;
+        .title {
+          float: left;
+          font-size: 20px;
+          color: orangered;
+          display: block;
+        }
+        .more {
+          display: block;
+          float: right;
+          color: #666666;
+          line-height: 30px;
+          &:hover {
+            color: orangered;
+          }
+        }
+      }
+      .course-list {
+        border-top: 3px solid #f77669;
+        li {
+          width: $article_right_w;
+          padding-top: 10px;
+          position: relative;
+          a {
+            display: block;
+            img {
+              width: 100%;
+            }
+          }
+          span {
+            display: block;
+            width: $article_right_w;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, .5);
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            color: white;
+            font-size: 20px;
+          }
+
+        }
+
+      }
+    }
+    .side-author {
+      background-color: white;
+      margin-top: 40px;
+      width: 100%;
+      padding: 20px 15px 0 15px;
+      .author-header {
+        padding-bottom: 5px;
+        .title {
+          float: left;
+          font-size: 20px;
+          color: orangered;
+          display: block;
+        }
+      }
+      .author-list {
+        border-top: 3px solid #f77669;
+        width: 100%;
+        li {
+          border-bottom: rgba(128, 128, 128, 0.27) solid 1px;
+          padding: 20px 0;
+          &:hover {
+            background-color: #fffbfb;
+          }
+          .author-pic {
+            width: 70px;
+            float: left;
+            overflow: hidden;
+            img {
+              width: 100%;
+              display: inline-block;
+              border-radius: 100%;
+            }
+          }
+          .author-intro {
+
+            float: left;
+            margin-left: 20px;
+            .main {
+              .name {
+                font-size: 20px;
+                color: black;
+                display: inline-block;
+                width: 80px;
+              }
+              .job, .article-num {
+                font-size: 17px;
+                color: gray;
+              }
+            }
+            .detail {
+              color: gray;
+              padding-top: 10px;
+              font-size: 17px;
+            }
+          }
+        }
+      }
+    }
+    .ad {
+      margin-top: 15px;
+      width: $article_right_w;
+      img {
+        width: $article_right_w+30;
+      }
+    }
+    .hot-article {
+      background-color: white;
+      margin-top: 40px;
+      width: 100%;
+      padding: 20px 15px 0 15px;
+      .article-header {
+        padding-bottom: 5px;
+        .title {
+          float: left;
+          font-size: 20px;
+          color: orangered;
+          display: block;
+        }
+      }
+      .hot-list {
+        border-top: 3px solid #f77669;
+        width: 100%;
+        li{
+          width: 100%;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          border-bottom: rgba(128, 128, 128, 0.27) solid 1px;
+
+          .content{
+            float: left;
+            width: 300px;
+            .title{
+              color: black;
+              font-size: 18px;
+              height: 60px;
+              line-height: 30px;
+              overflow: hidden;
+            }
+          }
+          &:hover .title{
+            color:red;
+          }
+          .others{
+            color: gray;
+            padding-top: 10px;
+            span{
+              display: block;
+            }
+            .categ{
+              float: left;
+            }
+            .time{
+              float: right;
+            }
+
+          }
+          .pic{
+            float: right;
+            width: 130px;
+            img{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
